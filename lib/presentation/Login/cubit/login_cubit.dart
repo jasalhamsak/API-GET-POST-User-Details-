@@ -6,7 +6,7 @@
   import 'package:meta/meta.dart';
   import 'package:http/http.dart'as http;
 
-import '../../../resources/Model.dart';
+import '../Resources/Model.dart';
 
   part 'login_state.dart';
 
