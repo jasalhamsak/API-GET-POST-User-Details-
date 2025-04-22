@@ -1,24 +1,44 @@
+import 'package:apigetandpost/presentation/Login/login%20screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../resources/Resources.dart';
 import 'cubic/homescreen_cubit.dart';
 
 
 class homeScreen extends StatelessWidget {
   homeScreen({super.key, required this.token});
 
-  final String token;
-
+  String token;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer : Drawer(
+        child:
+            DrawerHeader(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.logout_outlined),
+                      title: Text("Logout"),
+                      onTap: ()async{
+                        final navigator = Navigator.of(context);
+                        await remPrefs();
+                        navigator.pushReplacement(MaterialPageRoute(builder:(_) => LoginPage(),));
+                      },
+                    )
+                  ],
+                )
+            )
 
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Icon(Icons.menu, color: Colors.black),
+        // leading: Icon(Icons.menu, color: Colors.black),
         title: Text("Lead List", style: TextStyle(color: Colors.black)),
         actions: [
           Padding(

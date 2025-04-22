@@ -7,7 +7,6 @@ part 'homescreen_state.dart';
 
 class HomescreenCubit extends Cubit<HomescreenState> {
   HomescreenCubit(this.token) : super(HomescreenInitial()){
-    print("calling Fuction");
     getDetails();
   }
 
